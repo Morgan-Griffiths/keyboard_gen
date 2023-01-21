@@ -1,3 +1,4 @@
+import os
 from keyboard_snippets import footer,header
 
 action_output_dict = {
@@ -220,16 +221,12 @@ indexToUppercase = {v: k for k, v in uppercase_dictionary.items()}
 
 def save_keyboard_layout(keyboard_layout):
 	# Save the keyboard layout to a file
-	with open('keyboard_layout.keylayout','w') as f:
+	with open('assets/keyboard_layout.keylayout','w') as f:
+		f.write(keyboard_layout)
+	with open(f'{os.path.expanduser("~")}/Library/Keyboard Layouts/custom_keyboard.keylayout','w') as f:
 		f.write(keyboard_layout)
 
 def create_keyboard_layout(keyboard_layout:dict):
-	# if int(dict(key.attrib)['code']) in indexToLowercase and indexToLowercase[int(dict(key.attrib)['code'])] in keyboard_layout:
-	# 	print(int(dict(key.attrib)['code']),indexToLowercase[int(dict(key.attrib)['code'])])
-	# 	attrib = action_output_dict[int(dict(key.attrib)['code'])]
-	# 	modified_key = keyboard_layout[indexToLowercase[int(dict(key.attrib)['code'])]]
-	# 	print(key.attrib)
-
 	def get_key(key):
 		k = keyboard_layout[key]
 		if k in modifier_to_key:

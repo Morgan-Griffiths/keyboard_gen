@@ -8,6 +8,8 @@ You can visualize the keyboard layout as the model trains.
 
 ## Usage
 
+Modify the config file to change the genetic algoithm parameters.
+
 1. Generate the keypress data by running the `keylogger.py` script.
    - (Optional) Visualize the cost matrix
 2. Train the model by inputting the data path.

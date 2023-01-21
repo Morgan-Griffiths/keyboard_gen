@@ -2,8 +2,8 @@ import os
 
 
 # recursively loop through all the files in all the directories
-def create_dataset(dir_path,extension):
-    output_path = 'output.txt'
+def create_dataset(dir_path,extension,output_file):
+    output_path = output_file
     def loop_through_files(dir_path):
         for file in os.listdir(dir_path):
             if os.path.isdir(os.path.join(dir_path, file)):

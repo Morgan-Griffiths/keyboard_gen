@@ -19,7 +19,7 @@ def timeit(method):
         return result
     return timed
 
-def display_keyboard(translation_dictionary):
+def display_keyboard(translation_dictionary,score):
     fig,ax = plt.subplots(1,dpi=900)
 
     for key in KEY_POSITIONS:
@@ -49,7 +49,7 @@ def display_keyboard(translation_dictionary):
     ax.set_xlim(0,KEYBOARD_WIDTH)
     ax.set_ylim(0,KEYBOARD_HEIGHT)
     ax.set_aspect('equal')
-    plt.show()
+    plt.savefig(f'./images/{datetime.datetime.utcnow()}_{score}_keyboard.png',dpi=900)
 
 def visualize_keypress_matrix(cost_matrix):
     fig, ax = plt.subplots(figsize=(32,32))
@@ -60,13 +60,10 @@ def visualize_keypress_matrix(cost_matrix):
         chstr = row + col
         ax.text(j,i, chstr, ha='center',va='bottom',color='gray')
         ax.text(j,i, round(cost_matrix[i,j],2), ha='center',va='top',color='gray')
-        # ax.text(j, i, '{:0.1f}'.format(z), ha='center', va='center',bbox=dict(boxstyle='round', facecolor='white', edgecolor='0.3'))
     ax.set_xlabel('Key pressed')
     ax.set_title('Average time between key presses')
-    # ax.set_xticklabels(ALL_USED_KEYS + MODIFIER_KEYS)
-    # ax.set_yticklabels(ALL_USED_KEYS + MODIFIER_KEYS)
     plt.axis('off');
-    plt.show()
+    plt.savefig('./images/keypress_matrix.png',dpi=900)
     
     
 def generate_cost_matrix():
@@ -95,7 +92,7 @@ def generate_cost_matrix():
     # print(key_logs[:20])
     # print(time_deltas[:25])
     cost_matrix = cost_matrix / count_matrix
-    np.save('cost_matrix.npy',cost_matrix)
+    np.save('assets/cost_matrix.npy',cost_matrix)
 
 def keyboard_cost(text,cost_matrix,translation_dictionary):
     cost = 0
@@ -110,8 +107,28 @@ def keyboard_cost(text,cost_matrix,translation_dictionary):
 #         cost += cost_matrix[stoi[translation_dictionary[letter]],stoi[translation_dictionary[next_letter]]]
 #     return cost / len(text)# normalized by text length
 
-def parse_python():
-    with open('../output.txt','r') as f:
+def parse_files(extension,file_path):
+    if extension == 'txt':
+        return parse_text(file_path)
+    elif extension == '.py':
+        return parse_python(file_path)
+    elif extension == '.js':
+        return parse_javascript(file_path)
+    else:
+        raise Exception('Invalid extension')
+
+def parse_javascript(file_path):
+    with open(file_path,'r') as f:
+        text = f.read()
+    return text
+
+def parse_text(file_path):
+    with open(file_path,'r') as f:
+        text = f.read()
+    return text
+
+def parse_python(file_path):
+    with open(file_path,'r') as f:
         text = f.read()
     text = re.sub('\\n', '',text)
     text = re.sub('\s{4}', '\t',text)

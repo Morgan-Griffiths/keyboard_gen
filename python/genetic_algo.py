@@ -2,16 +2,18 @@ from random import shuffle
 import numpy as np
 from datatypes import CHANGEABLE_KEYS, REMAINING_MODIFIER_KEYS
 from utils import display_keyboard, keyboard_cost
+from config import Config
 
 
 class GenericKeyboardSearch:
     def __init__(self,training_data,cost_matrix):
-        self.population_size = 30
-        self.mutation_rate = 0.05
-        self.num_generations = 500
-        self.survival_rate = 0.20
-        self.parent_selection_rate = 0.60
-        self.random_portion = 0.20
+        config = Config()
+        self.population_size = config.population_size
+        self.mutation_rate = config.mutation_rate
+        self.num_generations = config.num_generations
+        self.survival_rate = config.survival_rate
+        self.parent_selection_rate = config.parent_selection_rate
+        self.random_portion = config.random_portion
         self.cost_matrix = cost_matrix
         self.text = training_data
 
@@ -69,7 +71,7 @@ class GenericKeyboardSearch:
             k_best,min_cost = self.select_k_best(population)
             # if i % 50 == 0:
             print('generation',i,'min_cost',min_cost)
-            display_keyboard(k_best[0])
+            display_keyboard(k_best[0],min_cost)
             population = self.mutate_population(k_best)
             # break
         return k_best[0]

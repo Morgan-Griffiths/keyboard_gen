@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "ai-keyboards"
+version = "0.1.0"
+description = "tool to train a keyboard on a dataset and then create the keyboard so you can try it yourself."
+authors = ["Morgan Griffiths <c5ipo7i@gmail.com>"]
+readme = "README.md"
+packages = [{include = "ai_keyboards"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.23.4"
+matplotlib = "^3.5.3"
+pynput = "^1.7.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

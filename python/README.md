@@ -10,7 +10,8 @@ You can visualize the keyboard layout as the model trains.
 
 Modify the config file to change the genetic algoithm parameters.
 
-1. Generate the keypress data by running the `keylogger.py` script.
-   - (Optional) Visualize the cost matrix
-2. Train the model by inputting the data path.
-3. Use the new keyboard layout!
+- `python main.py -d /Users/Shuza/Code/setters-admin -e .js -s -o js_dataset.txt` this will create a dataset of all the .js files in the directory and subdirectories
+- `python main.py -g` this will generate a cost matrix
+- `python main.py -t -e .py -p python_dataset.txt` this will train a new keyboard layout. requires a keylog file and a cost matrix
+- `python main.py -l` this will create a keylog file and populate it with user data
+- `python main.py -k` this will generate a new keyboard layout. requires a keylog file and a cost matrix

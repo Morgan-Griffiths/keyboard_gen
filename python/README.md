@@ -15,3 +15,9 @@ Modify the config file to change the genetic algoithm parameters.
 - `python main.py -t -e .py -p python_dataset.txt` this will train a new keyboard layout. requires a keylog file and a cost matrix
 - `python main.py -l` this will create a keylog file and populate it with user data
 - `python main.py -k` this will generate a new keyboard layout. requires a keylog file and a cost matrix
+
+## Using the keyboard layouts
+
+`Mac osx only.`
+
+When the program writes the file to the keyboard layout directory, look it up in the keyboard preferences under 'Other' and select it. If you make changes to it, you may need to log out and back in to see the changes.

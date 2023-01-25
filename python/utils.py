@@ -23,21 +23,21 @@ def display_keyboard(translation_dictionary,score):
     fig,ax = plt.subplots(1,dpi=900)
 
     for key in KEY_POSITIONS:
-        # if key.startswith('Key'):
-        #     print(key,key in translation_dictionary)
         if key in translation_dictionary:
             translated_key = translation_dictionary[key]
             key_position = KEY_POSITIONS[translated_key]
             if translated_key == 'Key.space':
                 rect = patches.Rectangle((key_position[0] - SPACE_WIDTH * 0.5,key_position[1] - KEY_HEIGHT*0.5),SPACE_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
-            elif key in ['Key.shift','Key.shift_r']:
-                rect = patches.Rectangle((KEY_POSITIONS[key][0] - SHIFT_WIDTH * 0.5,KEY_POSITIONS[key][1] - KEY_HEIGHT*0.5),SHIFT_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
-            elif key in ['Key.cmd','Key.cmd_r']:
-                rect = patches.Rectangle((KEY_POSITIONS[key][0] - COMMAND_WIDTH * 0.5,KEY_POSITIONS[key][1] - KEY_HEIGHT*0.5),COMMAND_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
-            elif key in ['Key.caps_lock','Key.enter']:
-                rect = patches.Rectangle((KEY_POSITIONS[key][0] - CAPSLOCK_WIDTH * 0.5,KEY_POSITIONS[key][1] - KEY_HEIGHT*0.5),ENTER_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
-            elif key in ['Key.tab','Key.backspace']:
-                rect = patches.Rectangle((KEY_POSITIONS[key][0] - TAB_WIDTH * 0.5,KEY_POSITIONS[key][1] - KEY_HEIGHT*0.5),BACKSPACE_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
+            elif translated_key in ['Key.shift','Key.shift_r']:
+                rect = patches.Rectangle((key_position[0] - SHIFT_WIDTH * 0.5,key_position[1] - KEY_HEIGHT*0.5),SHIFT_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
+            elif translated_key in ['Key.cmd','Key.cmd_r']:
+                rect = patches.Rectangle((key_position[0] - COMMAND_WIDTH * 0.5,key_position[1] - KEY_HEIGHT*0.5),COMMAND_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
+            elif translated_key in ['Key.caps_lock','Key.enter']:
+                rect = patches.Rectangle((key_position[0] - CAPSLOCK_WIDTH * 0.5,key_position[1] - KEY_HEIGHT*0.5),ENTER_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
+            elif translated_key in ['Key.tab','Key.backspace']:
+                print('translated_key',translated_key,key)
+                rect = patches.Rectangle((key_position[0] - TAB_WIDTH * 0.5,key_position[1] - KEY_HEIGHT*0.5),BACKSPACE_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
+                print('rect',rect)
             else:
                 rect = patches.Rectangle((key_position[0] - KEY_WIDTH * 0.5,key_position[1] - KEY_HEIGHT*0.5),KEY_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
             ax.text(key_position[0],key_position[1],key,fontsize=5,ha='center',va='center')

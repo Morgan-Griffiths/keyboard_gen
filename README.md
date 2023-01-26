@@ -6,9 +6,9 @@ You can visualize the keyboard layout as the model trains.
 
 the results will astound you.
 
-![Alt Text](https://media.giphy.com/media/8c9NInMpXixMjR6lTH/giphy.gif)
-
 ## Installation
+
+![Alt Text](https://media.giphy.com/media/8c9NInMpXixMjR6lTH/giphy.gif)
 
 ## Usage
 

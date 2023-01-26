@@ -35,9 +35,7 @@ def display_keyboard(translation_dictionary,score):
             elif translated_key in ['Key.caps_lock','Key.enter']:
                 rect = patches.Rectangle((key_position[0] - CAPSLOCK_WIDTH * 0.5,key_position[1] - KEY_HEIGHT*0.5),ENTER_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
             elif translated_key in ['Key.tab','Key.backspace']:
-                print('translated_key',translated_key,key)
                 rect = patches.Rectangle((key_position[0] - TAB_WIDTH * 0.5,key_position[1] - KEY_HEIGHT*0.5),BACKSPACE_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
-                print('rect',rect)
             else:
                 rect = patches.Rectangle((key_position[0] - KEY_WIDTH * 0.5,key_position[1] - KEY_HEIGHT*0.5),KEY_WIDTH,ROW_HEIGHT,linewidth=1,edgecolor='k',facecolor='w')
             ax.text(key_position[0],key_position[1],key,fontsize=5,ha='center',va='center')
@@ -70,7 +68,6 @@ def generate_cost_matrix():
     with open('../keyLog.txt','r') as f:
         key_logs = f.read().splitlines()
     # unique_commands = np.unique([line.split(': ')[1] for line in key_logs])
-    # print(unique_commands)
 
     cost_matrix = np.zeros((len(ALL_USED_KEYS + MODIFIER_KEYS),len(ALL_USED_KEYS + MODIFIER_KEYS)))
     count_matrix = np.ones((len(ALL_USED_KEYS + MODIFIER_KEYS),len(ALL_USED_KEYS + MODIFIER_KEYS)))
@@ -78,19 +75,12 @@ def generate_cost_matrix():
     filtered_key_logs = filter_keylogs(key_logs)
     # time_deltas = []
     for line,next_line in zip(filtered_key_logs,filtered_key_logs[1:]):
-        # print(line)
         date,command = line
         next_date,next_command = next_line
-        # print('date,command',date,command)
-        # print('next_date,next_command',next_date,next_command)
         time_delta = datetime.datetime.strptime(next_date,'%Y-%m-%d %H:%M:%S,%f') - datetime.datetime.strptime(date,'%Y-%m-%d %H:%M:%S,%f')
         if time_delta.seconds <= 1:
             cost_matrix[stoi[command],stoi[next_command]] += time_delta.total_seconds()
             count_matrix[stoi[command],stoi[next_command]] += 1
-            # time_deltas.append(time_delta)
-        # break
-    # print(key_logs[:20])
-    # print(time_deltas[:25])
     cost_matrix = cost_matrix / count_matrix
     np.save('assets/cost_matrix.npy',cost_matrix)
 

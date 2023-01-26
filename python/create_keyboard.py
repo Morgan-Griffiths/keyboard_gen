@@ -1,3 +1,4 @@
+import json
 import os
 from keyboard_snippets import footer,header
 
@@ -228,11 +229,14 @@ def save_keyboard_layout(keyboard_layout):
 
 def create_keyboard_layout(keyboard_layout:dict):
 	def get_key(key):
-		k = keyboard_layout[key]
-		if k in modifier_to_key:
-			return modifier_to_key[k]
-		else:
-			return k
+		try:
+			k = keyboard_layout[key]
+			if k in modifier_to_key:
+				return modifier_to_key[k]
+			else:
+				return k
+		except:
+			return key
 
 	keyboard_content = f"""
 			<keyMap index="0">
@@ -572,6 +576,7 @@ def create_keyboard_layout(keyboard_layout:dict):
 				<key code="126" output="&#x001E;"/>
 			</keyMap>  
 	"""
+	# print(keyboard_content)
 	return header + keyboard_content + footer
 
 header = """ <?xml version="1.1" encoding="UTF-8"?>

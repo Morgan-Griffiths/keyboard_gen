@@ -63,6 +63,24 @@ def visualize_keypress_matrix(cost_matrix):
     plt.axis('off');
     plt.savefig('./images/keypress_matrix.png',dpi=900)
     
+def generate_1d_cost_matrix():
+    with open('../keyLog.txt','r') as f:
+        key_logs = f.read().splitlines()
+    cost_matrix = np.zeros(len(ALL_USED_KEYS + MODIFIER_KEYS))
+    count_matrix = np.ones(len(ALL_USED_KEYS + MODIFIER_KEYS))
+
+    filtered_key_logs = filter_keylogs(key_logs)
+    # time_deltas = []
+    for line,next_line in zip(filtered_key_logs,filtered_key_logs[1:]):
+        date,command = line
+        next_date,next_command = next_line
+        time_delta = datetime.datetime.strptime(next_date,'%Y-%m-%d %H:%M:%S,%f') - datetime.datetime.strptime(date,'%Y-%m-%d %H:%M:%S,%f')
+        if time_delta.seconds <= 1:
+            cost_matrix[stoi[next_command]] += time_delta.total_seconds()
+            count_matrix[stoi[next_command]] += 1
+    cost_matrix = cost_matrix / count_matrix
+    np.save('assets/cost_matrix_1d.npy',cost_matrix)
+
     
 def generate_cost_matrix():
     with open('../keyLog.txt','r') as f:

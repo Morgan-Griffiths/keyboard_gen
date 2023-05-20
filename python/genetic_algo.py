@@ -67,7 +67,7 @@ class GenericKeyboardSearch:
     def run_evolution(self):
         population = self.generate_population()
         for i in range(self.num_generations):
-            print(f'processing {i} of {self.num_generations}')
+            # print(f'processing {i} of {self.num_generations}')
             k_best,min_cost = self.select_k_best(population)
             if i % 50 == 0:
                 print('generation',i,'min_cost',min_cost)

@@ -2,7 +2,7 @@ import numpy as np
 from cli_keycombinations import populate_user_data
 from genetic_algo import GenericKeyboardSearch
 from create_keyboard import create_keyboard_layout,save_keyboard_layout
-from utils import parse_keys, parse_python,generate_cost_matrix,parse_files
+from utils import parse_keys, parse_python,generate_cost_matrix,parse_files,display_keyboard
 from create_dataset import create_dataset
 import json
 
@@ -29,6 +29,12 @@ if __name__ == '__main__':
      """
 
     args = parser.parse_args()
+
+    # with open('keyboard.json') as f:
+    #     keyboard = json.load(f)
+    # display_keyboard(keyboard,0)
+    # layout = create_keyboard_layout(keyboard)
+    # save_keyboard_layout(layout)
 
     if args.keylog:
         populate_user_data()

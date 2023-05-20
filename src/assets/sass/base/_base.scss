@@ -1,0 +1,24 @@
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+ul {
+    list-style: none;
+}
+
+body {
+    box-sizing: border-box; 
+    font-family: 'Roboto', sans-serif;
+}
+  
+span {
+    margin: auto
+}
+
+html {
+    font-size: 62.5%;
+}

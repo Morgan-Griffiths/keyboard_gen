@@ -1,0 +1,128 @@
+import { KeyboardKey } from "./types";
+
+export const keyRowOne: KeyboardKey[] = [
+  { primary: "~", shift: "`", type: "double", class: "key" },
+  { primary: "!", shift: "1", type: "double", class: "key" },
+  { primary: "@", shift: "2", type: "double", class: "key" },
+  { primary: "#", shift: "3", type: "double", class: "key" },
+  { primary: "$", shift: "4", type: "double", class: "key" },
+  { primary: "%", shift: "5", type: "double", class: "key" },
+  { primary: "^", shift: "6", type: "double", class: "key" },
+  { primary: "&", shift: "7", type: "double", class: "key" },
+  { primary: "*", shift: "8", type: "double", class: "key" },
+  { primary: "(", shift: "9", type: "double", class: "key" },
+  { primary: ")", shift: "0", type: "double", class: "key" },
+  { primary: "_", shift: "-", type: "double", class: "key" },
+  { primary: "+", shift: "=", type: "double", class: "key" },
+  {
+    primary: "Backspace",
+    shift: null,
+    type: "special",
+    class: "key backspace hidden",
+  },
+];
+export const keyRowTwo: KeyboardKey[] = [
+  { primary: "Tab", shift: null, type: "special", class: "key tab hidden" },
+  { primary: "q", shift: "Q", type: "single", class: "key" },
+  { primary: "w", shift: "W", type: "single", class: "key" },
+  { primary: "e", shift: "E", type: "single", class: "key" },
+  { primary: "r", shift: "R", type: "single", class: "key" },
+  { primary: "t", shift: "T", type: "single", class: "key" },
+  { primary: "y", shift: "Y", type: "single", class: "key" },
+  { primary: "u", shift: "U", type: "single", class: "key" },
+  { primary: "i", shift: "I", type: "single", class: "key" },
+  { primary: "o", shift: "O", type: "single", class: "key" },
+  { primary: "p", shift: "P", type: "single", class: "key" },
+  { primary: "{", shift: "[", type: "double", class: "key" },
+  { primary: "}", shift: "]", type: "double", class: "key" },
+  { primary: "|", shift: "\\", type: "double", class: "key" },
+];
+export const keyRowThree: KeyboardKey[] = [
+  {
+    primary: "Caps Lock",
+    shift: null,
+    type: "special",
+    class: "key capslock hidden",
+  },
+  { primary: "a", shift: "A", type: "single", class: "key" },
+  { primary: "s", shift: "S", type: "single", class: "key" },
+  { primary: "d", shift: "D", type: "single", class: "key" },
+  { primary: "f", shift: "F", type: "single", class: "key" },
+  { primary: "g", shift: "G", type: "single", class: "key" },
+  { primary: "h", shift: "H", type: "single", class: "key" },
+  { primary: "j", shift: "J", type: "single", class: "key" },
+  { primary: "k", shift: "K", type: "single", class: "key" },
+  { primary: "l", shift: "L", type: "single", class: "key" },
+  { primary: ":", shift: ";", type: "double", class: "key" },
+  { primary: '"', shift: "'", type: "double", class: "key" },
+  { primary: "Enter", shift: null, type: "special", class: "key enter hidden" },
+];
+export const keyRowFour: KeyboardKey[] = [
+  { primary: "Shift", shift: null, type: "special", class: "key shift hidden" },
+  { primary: "z", shift: "Z", type: "single", class: "key" },
+  { primary: "x", shift: "X", type: "single", class: "key" },
+  { primary: "c", shift: "C", type: "single", class: "key" },
+  { primary: "v", shift: "V", type: "single", class: "key" },
+  { primary: "b", shift: "B", type: "single", class: "key" },
+  { primary: "n", shift: "N", type: "single", class: "key" },
+  { primary: "m", shift: "M", type: "single", class: "key" },
+  { primary: "<", shift: ",", type: "double", class: "key" },
+  { primary: ">", shift: ".", type: "double", class: "key" },
+  { primary: "?", shift: "/", type: "double", class: "key" },
+  { primary: "Shift", shift: null, type: "special", class: "key shift hidden" },
+];
+export const keyRowFive: KeyboardKey[] | KeyboardKey[][] = [
+  { primary: "Fn", shift: null, type: "special", class: "key hidden" },
+  { primary: "Ctrl", shift: "^", type: "special", class: "key control hidden" },
+  {
+    primary: "Option",
+    shift: "⌥",
+    type: "special",
+    class: "key option hidden",
+  },
+  {
+    primary: "Command",
+    shift: "⌘",
+    type: "special",
+    class: "key command hidden",
+  },
+  { primary: "Space", shift: null, type: "special", class: "key space" },
+  {
+    primary: "Command",
+    shift: "⌘",
+    type: "special",
+    class: "key command hidden",
+  },
+  {
+    primary: "Option",
+    shift: "⌥",
+    type: "special",
+    class: "key option hidden",
+  },
+  {
+    primary: "&larr;",
+    shift: null,
+    type: "horizontalArrow",
+    class: "key arrow hidden",
+  },
+  {
+    primary: "&uarr;",
+    shift: null,
+    type: "verticalArrow",
+    class: "key arrow hidden",
+  },
+  {
+    primary: "&rarr;",
+    shift: null,
+    type: "horizontalArrow",
+    class: "key arrow hidden",
+  },
+];
+
+export const keyboardRows = [
+  keyRowOne,
+  keyRowTwo,
+  keyRowThree,
+  keyRowFour,
+  keyRowFive,
+];

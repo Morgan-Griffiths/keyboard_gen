@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+ul {
+  list-style: none; }
+
+body {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif; }
+
+span {
+  margin: auto; }
+
+html {
+  font-size: 62.5%; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.3rem; }
+
+.key {
+  display: flex;
+  width: 7em;
+  height: 7em;
+  background-color: pink;
+  border: 2px solid black;
+  border-radius: 1rem; }
+
+.hidden {
+  visibility: hidden; }
+
+.horizontal-arrow {
+  margin-top: auto; }
+
+.backspace {
+  width: 11em;
+  height: 7em; }
+
+.tab {
+  width: 11em;
+  height: 7em; }
+
+.capslock {
+  width: 12.5em;
+  height: 7em; }
+
+.enter {
+  width: 12.5em;
+  height: 7em; }
+
+.shift {
+  width: 16em;
+  height: 7em; }
+
+.command {
+  width: 8.7em;
+  height: 7em; }
+
+.space {
+  width: 36em;
+  height: 7em; }
+
+.arrow {
+  width: 7em;
+  height: 3.5em; }
